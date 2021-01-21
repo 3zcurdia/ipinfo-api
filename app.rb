@@ -4,6 +4,6 @@ class App < Hanami::API
   get '/' do
     request = Rack::Request.new(env)
     location = Geocoder.search(request.ip).first
-    json(location&.data || {})
+    json(location&.data)
   end
 end
