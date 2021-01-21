@@ -65,8 +65,6 @@ GEM
       protocol-hpack (~> 1.4)
       protocol-http (~> 0.18)
     rack (2.2.3)
-    rack-cache (1.12.1)
-      rack (>= 0.4)
     ruby2_keywords (0.0.4)
     samovar (2.1.4)
       console (~> 1.0)
@@ -81,7 +79,6 @@ DEPENDENCIES
   geocoder
   hanami-api
   oj
-  rack-cache
 
 RUBY VERSION
    ruby 3.0.0p0
