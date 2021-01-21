@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class App < Hanami::API
   get '/' do
     request_ip = params[:ip] || Rack::Request.new(env).ip
