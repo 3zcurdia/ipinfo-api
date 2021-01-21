@@ -1,1 +1,1 @@
-web: rackup --server falcon --port $PORT
+web: rackup --port $PORT
