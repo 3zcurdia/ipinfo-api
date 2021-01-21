@@ -53,7 +53,6 @@ GEM
       hansi (~> 0.2.0)
       mustermann (= 1.1.1)
     nio4r (2.5.4)
-    oj (3.11.0)
     process-metrics (0.2.1)
       console (~> 1.8)
       samovar (~> 2.1)
@@ -78,7 +77,6 @@ DEPENDENCIES
   falcon
   geocoder
   hanami-api
-  oj
 
 RUBY VERSION
    ruby 3.0.0p0
