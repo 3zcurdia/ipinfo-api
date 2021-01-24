@@ -1,6 +1,8 @@
 require 'bundler/setup'
 require 'hanami/api'
-require 'geocoder'
+require 'singleton'
+require 'net/http'
+require 'uri'
 require './app'
 
 run App.new

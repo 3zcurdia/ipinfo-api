@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    geocoder (1.6.4)
     hanami-api (0.2.0)
       hanami-router (~> 2.0.alpha)
     hanami-router (2.0.0.alpha4)
@@ -25,7 +24,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  geocoder
   hanami-api
   oj
   puma
