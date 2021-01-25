@@ -46,6 +46,7 @@ class App < Hanami::API
   get '/' do
     params.fetch(:ip, Rack::Request.new(env).ip)
     .then { |ip| IpInfo.geo(ip) }
-    .then { |location| json(location) }
+    .then { |data| data.except('readme') }
+    .then { |data| json(data) }
   end
 end
