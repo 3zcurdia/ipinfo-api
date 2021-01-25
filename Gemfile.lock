@@ -14,7 +14,6 @@ GEM
       hansi (~> 0.2.0)
       mustermann (= 1.1.1)
     nio4r (2.5.4)
-    oj (3.11.0)
     puma (5.1.1)
       nio4r (~> 2.0)
     rack (2.2.3)
@@ -25,7 +24,6 @@ PLATFORMS
 
 DEPENDENCIES
   hanami-api
-  oj
   puma
 
 RUBY VERSION
