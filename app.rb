@@ -26,10 +26,8 @@ class IpInfo
 
   def geo
     cache.fetch(ip_address) do
-      res = Net::HTTP.get_response(uri)
-      if res.is_a?(Net::HTTPSuccess)
-        JSON.parse(res.body) rescue nil
-      end
+      response = Net::HTTP.get_response(uri)
+      parse(response.body) if response.is_a?(Net::HTTPSuccess)
     end
   end
 
@@ -39,6 +37,10 @@ class IpInfo
 
   def uri
     URI("https://ipinfo.io/#{ip_address}/geo")
+  end
+
+  def parse(body)
+    JSON.parse(body) rescue nil
   end
 end
 
