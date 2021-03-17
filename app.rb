@@ -14,7 +14,7 @@ class MemCache
   end
 end
 
-class Whereami
+class IpInfo
   def self.find(ip_address)
     self.new(ip_address).find
   end
@@ -50,7 +50,7 @@ end
 class App < Hanami::API
   get '/' do
     params.fetch(:ip, Rack::Request.new(env).ip)
-    .then { |ip| Whereami.find(ip) }
+    .then { |ip| IpInfo.find(ip) }
     .then { |data| json(data) }
   end
 end
