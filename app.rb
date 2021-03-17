@@ -14,9 +14,9 @@ class MemCache
   end
 end
 
-class IpInfo
-  def self.geo(ip_address)
-    self.new(ip_address).geo
+class Whereami
+  def self.find(ip_address)
+    self.new(ip_address).find
   end
 
   def initialize(ip_address, cache: MemCache.instance)
@@ -24,7 +24,7 @@ class IpInfo
     @cache = cache
   end
 
-  def geo
+  def find
     cache.fetch(ip_address) do
       response = Net::HTTP.get_response(uri)
       parse(response.body) if response.is_a?(Net::HTTPSuccess)
@@ -40,15 +40,17 @@ class IpInfo
   end
 
   def parse(body)
-    JSON.parse(body) rescue nil
+    json_response = JSON.parse(body)
+    json_response.except('readme')
+  rescue JSON::ParserError
+    nil
   end
 end
 
 class App < Hanami::API
   get '/' do
     params.fetch(:ip, Rack::Request.new(env).ip)
-    .then { |ip| IpInfo.geo(ip) }
-    .then { |data| data.except('readme') }
+    .then { |ip| Whereami.find(ip) }
     .then { |data| json(data) }
   end
 end
